@@ -72,9 +72,9 @@ export function Footer() {
             </h4>
             <p className="text-sm text-slate-500">
               {/* UPDATE: Replace with your actual name */}
-              <span className="font-medium text-slate-700">[Your Name]</span>
+              <span className="font-medium text-slate-700">Wesley Shi</span>
               <br />
-              CX & Support Operations Leader
+              Technical Support Operations Leader
             </p>
             <a
               href="https://wesonops.com"
