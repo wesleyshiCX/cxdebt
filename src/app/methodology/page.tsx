@@ -25,7 +25,7 @@ export default function MethodologyPage() {
       </section>
 
       <section className="section-padding">
-        <div className="container-narrow prose prose-slate max-w-none">
+        <div className="container-narrow prose prose-slate-lg">
           {/* Philosophy */}
           <h2>Calculation Philosophy</h2>
           <p>
