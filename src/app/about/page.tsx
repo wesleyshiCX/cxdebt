@@ -82,9 +82,9 @@ export default function AboutPage() {
 
             <p>
               {/* UPDATE: Replace with your actual bio */}
-              I&apos;m a CX and Support Operations leader focused on scaling and
-              evolving support teams using AI-first strategies and modern
-              tooling. My experience spans health tech, SaaS, and enterprise
+              I&apos;m a Technical Support Operations leader focused on scaling and
+              evolving support teams using AI-Human strategies and modern
+              tooling. My experience spans B2B/B2C SaaS, HR Tech, and enterprise
               platforms, including building Tier 1-3 support structures and
               implementing operational frameworks that connect support metrics
               to business outcomes.
