@@ -92,7 +92,7 @@ export function Footer() {
             © {currentYear} CX Debt Framework. All rights reserved.
           </p>
           <p className="text-xs text-slate-400">
-            Conceptualized and built by Wesley Shi
+            Conceptualized and built by 
             {/* UPDATE: Replace with your actual name */}
             <a
               href="https://wesonops.com"
