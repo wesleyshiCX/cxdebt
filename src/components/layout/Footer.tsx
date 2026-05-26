@@ -92,8 +92,7 @@ export function Footer() {
             © {currentYear} CX Debt Framework. All rights reserved.
           </p>
           <p className="text-xs text-slate-400">
-            
-            </a>
+            &nbsp;
           </p>
         </div>
       </div>
