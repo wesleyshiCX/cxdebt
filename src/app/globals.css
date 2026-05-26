@@ -32,8 +32,8 @@
     @apply py-16 md:py-24;
   }
 /* Only apply negative margin to a section that follows another section-padding */
-  .section-padding + .section-padding {
-    @apply -mt-16 md:-mt-24; /* Adjust value: -X cancels half the total double space */
+  .section-padding:not(:first-child) {
+    @apply -mt-16 md:-mt-24;
   }
 
   .card {
