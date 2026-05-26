@@ -29,7 +29,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply pt-16 pb-8 md:pt-24 pb-8;
   }
 
   /* Collapse top padding when a section follows another section */
