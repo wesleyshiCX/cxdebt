@@ -95,65 +95,66 @@ export default function MethodologyPage() {
           </p>
 
           {/* Benchmarks Table */}
-          <h2>Industry Benchmarks Used</h2>
-          <div className="overflow-x-auto">
-            <table>
+                   <h2>Industry Benchmarks Used</h2>
+          <div className="overflow-x-auto not-prose">
+            <table className="w-full border-collapse">
               <thead>
-                <tr>
-                  <th>Metric</th>
-                  <th>Value</th>
-                  <th>Source</th>
+                <tr className="border-b-2 border-slate-300">
+                  <th className="text-left py-3 px-4 font-semibold text-slate-900 w-1/3">Metric</th>
+                  <th className="text-center py-3 px-4 font-semibold text-slate-900 w-1/3">Value</th>
+                  <th className="text-center py-3 px-4 font-semibold text-slate-900 w-1/3">Source</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Average handle time (Tier 1)</td>
-                  <td>14 minutes</td>
-                  <td>MetricNet Benchmark Database</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Average handle time (Tier 1)</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">14 minutes</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">MetricNet Benchmark Database</td>
                 </tr>
-                <tr>
-                  <td>Tier 2 cost multiplier</td>
-                  <td>1.8×</td>
-                  <td>MetricNet</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Tier 2 cost multiplier</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">1.8×</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">MetricNet</td>
                 </tr>
-                <tr>
-                  <td>Tier 3 cost multiplier</td>
-                  <td>3.2×</td>
-                  <td>MetricNet</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Tier 3 cost multiplier</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">3.2×</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">MetricNet</td>
                 </tr>
-                <tr>
-                  <td>Self-service deflection potential</td>
-                  <td>20-40% (using 30%)</td>
-                  <td>Gartner</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Self-service deflection potential</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">20-40% (using 30%)</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">Gartner</td>
                 </tr>
-                <tr>
-                  <td>Churn rate for poor CX</td>
-                  <td>2.4× baseline</td>
-                  <td>Qualtrics XM Institute</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Churn rate for poor CX</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">2.4× baseline</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">Qualtrics XM Institute</td>
                 </tr>
-                <tr>
-                  <td>CSAT impact of SLA breach</td>
-                  <td>~1.8pt per 2× breach</td>
-                  <td>Zendesk Benchmark Report</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">CSAT impact of SLA breach</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">~1.8pt per 2× breach</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">Zendesk Benchmark Report</td>
                 </tr>
-                <tr>
-                  <td>Working hours per year</td>
-                  <td>2,080</td>
-                  <td>US Bureau of Labor Statistics</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Working hours per year</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">2,080</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">US Bureau of Labor Statistics</td>
                 </tr>
-                <tr>
-                  <td>Process waste estimate</td>
-                  <td>~12% of handle time</td>
-                  <td>Estimated (conservative)</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Process waste estimate</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">~12% of handle time</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">Estimated (conservative)</td>
                 </tr>
-                <tr>
-                  <td>Onboarding-attributed tickets</td>
-                  <td>~8% of volume</td>
-                  <td>Estimated (conservative)</td>
+                <tr className="border-b border-slate-200">
+                  <td className="text-left py-3 px-4 text-slate-700">Onboarding-attributed tickets</td>
+                  <td className="text-center py-3 px-4 text-slate-900 font-medium">~8% of volume</td>
+                  <td className="text-center py-3 px-4 text-slate-500 text-sm">Estimated (conservative)</td>
                 </tr>
               </tbody>
             </table>
           </div>
+
 
           <h2>Limitations &amp; Disclaimers</h2>
           <ul>
