@@ -8,7 +8,6 @@ import {
   DollarSign,
   TrendingUp,
   AlertTriangle,
-  RotateCcw,
   ArrowDown,
   ArrowUp,
   Minus,
@@ -17,7 +16,6 @@ import {
 interface ResultsDashboardProps {
   results: CalculatorResults;
   inputs: CalculatorInputs;
-  onReset: () => void;
 }
 
 const severityConfig = {
@@ -70,18 +68,14 @@ function formatCurrency(value: number): string {
   return `$${value.toLocaleString()}`;
 }
 
-export function ResultsDashboard({
-  results,
-  inputs,
-  onReset,
-}: ResultsDashboardProps) {
+export function ResultsDashboard({ results, inputs }: ResultsDashboardProps) {
   const sev = severityConfig[results.severity];
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Severity Banner */}
       <div
-        className={`${sev.bg} ${sev.border} border rounded-xl p-5 mb-8 flex items-start gap-4`}
+        className={`${sev.bg} ${sev.border} border rounded-xl p-5 flex items-start gap-4`}
       >
         <AlertTriangle className={`w-6 h-6 ${sev.color} flex-shrink-0 mt-0.5`} />
         <div>
@@ -97,20 +91,17 @@ export function ResultsDashboard({
       </div>
 
       {/* Headline Metrics */}
-      <div className="grid md:grid-cols-3 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="metric-card">
-          <DollarSign className="w-8 h-8 text-accent-600 mx-auto mb-2" />
+          <DollarSign className="w-7 h-7 text-accent-600 mx-auto mb-2" />
           <div className="metric-value text-slate-900">
             {formatCurrency(results.cxDebtBalance)}
           </div>
           <div className="metric-label">CX Debt Balance</div>
-          <p className="text-xs text-slate-400 mt-2">
-            Annualized cost of all unresolved CX issues
-          </p>
         </div>
 
         <div className="metric-card">
-          <TrendingUp className="w-8 h-8 text-accent-600 mx-auto mb-2" />
+          <TrendingUp className="w-7 h-7 text-accent-600 mx-auto mb-2" />
           <div
             className={`metric-value ${
               results.cxDebtRatio > 0.3
@@ -123,71 +114,61 @@ export function ResultsDashboard({
             {results.cxDebtRatio.toFixed(2)}
           </div>
           <div className="metric-label">CX Debt Ratio</div>
-          <p className="text-xs text-slate-400 mt-2">
-            Monthly debt accrual ÷ monthly support budget
-          </p>
         </div>
 
         <div className="metric-card">
-          <div className="w-8 h-8 mx-auto mb-2 flex items-center justify-center">
+          <div className="w-7 h-7 mx-auto mb-2 flex items-center justify-center">
             {results.cxDebtRatio > 0.15 ? (
-              <ArrowUp className="w-8 h-8 text-red-500" />
+              <ArrowUp className="w-7 h-7 text-red-500" />
             ) : results.cxDebtRatio > 0.05 ? (
-              <Minus className="w-8 h-8 text-amber-500" />
+              <Minus className="w-7 h-7 text-amber-500" />
             ) : (
-              <ArrowDown className="w-8 h-8 text-green-500" />
+              <ArrowDown className="w-7 h-7 text-green-500" />
             )}
           </div>
           <div className="metric-value text-slate-900">
             {formatCurrency(results.monthlyAccrual)}
           </div>
           <div className="metric-label">Monthly Accrual</div>
-          <p className="text-xs text-slate-400 mt-2">
-            New debt added each month at current trajectory
-          </p>
         </div>
       </div>
 
-      {/* Charts Row */}
-      <div className="grid md:grid-cols-2 gap-6 mb-10">
-        {/* Debt Trajectory */}
-        <div className="card">
-          <h3 className="text-lg font-bold text-slate-900 mb-1">
-            12-Month Debt Trajectory
-          </h3>
-          <p className="text-sm text-slate-500 mb-4">
-            Current path vs. optimized path with targeted interventions
-          </p>
-          <DebtTrajectoryChart data={results.trajectory} />
-        </div>
+      {/* Charts */}
+      <div className="card">
+        <h3 className="text-base font-bold text-slate-900 mb-1">
+          12-Month Debt Trajectory
+        </h3>
+        <p className="text-xs text-slate-500 mb-4">
+          Current path vs. optimized path with targeted interventions
+        </p>
+        <DebtTrajectoryChart data={results.trajectory} />
+      </div>
 
-        {/* Debt Breakdown */}
-        <div className="card">
-          <h3 className="text-lg font-bold text-slate-900 mb-1">
-            Debt Breakdown by Type
-          </h3>
-          <p className="text-sm text-slate-500 mb-4">
-            Where your CX Debt is concentrated
-          </p>
-          <DebtBreakdownChart breakdown={results.breakdown} />
-        </div>
+      <div className="card">
+        <h3 className="text-base font-bold text-slate-900 mb-1">
+          Debt Breakdown by Type
+        </h3>
+        <p className="text-xs text-slate-500 mb-4">
+          Where your CX Debt is concentrated
+        </p>
+        <DebtBreakdownChart breakdown={results.breakdown} />
       </div>
 
       {/* Supporting Metrics */}
-      <div className="card mb-10">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">
+      <div className="card">
+        <h3 className="text-base font-bold text-slate-900 mb-4">
           Supporting Metrics
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <div className="text-center p-3 bg-slate-50 rounded-lg">
-            <div className="text-lg font-bold text-slate-900">
+            <div className="text-base font-bold text-slate-900">
               ${results.costPerTicketT1.toFixed(2)}
             </div>
             <div className="text-xs text-slate-500">Cost/Ticket (T1)</div>
           </div>
           {inputs.tierCount >= 2 && (
             <div className="text-center p-3 bg-slate-50 rounded-lg">
-              <div className="text-lg font-bold text-slate-900">
+              <div className="text-base font-bold text-slate-900">
                 ${results.costPerTicketT2.toFixed(2)}
               </div>
               <div className="text-xs text-slate-500">Cost/Ticket (T2)</div>
@@ -195,20 +176,20 @@ export function ResultsDashboard({
           )}
           {inputs.tierCount >= 3 && (
             <div className="text-center p-3 bg-slate-50 rounded-lg">
-              <div className="text-lg font-bold text-slate-900">
+              <div className="text-base font-bold text-slate-900">
                 ${results.costPerTicketT3.toFixed(2)}
               </div>
               <div className="text-xs text-slate-500">Cost/Ticket (T3)</div>
             </div>
           )}
           <div className="text-center p-3 bg-slate-50 rounded-lg">
-            <div className="text-lg font-bold text-slate-900">
+            <div className="text-base font-bold text-slate-900">
               {formatCurrency(results.monthlySupportBudget)}
             </div>
             <div className="text-xs text-slate-500">Monthly Budget</div>
           </div>
           <div className="text-center p-3 bg-slate-50 rounded-lg">
-            <div className="text-lg font-bold text-red-600">
+            <div className="text-base font-bold text-red-600">
               {formatCurrency(results.annualDebtProjection)}
             </div>
             <div className="text-xs text-slate-500">12-Mo Projection</div>
@@ -217,52 +198,48 @@ export function ResultsDashboard({
       </div>
 
       {/* Recommendations */}
-      <div className="card mb-10">
-        <h3 className="text-lg font-bold text-slate-900 mb-1">
-          Recommended Actions
-        </h3>
-        <p className="text-sm text-slate-500 mb-6">
-          Prioritized interventions to reduce your CX Debt
-        </p>
+      {results.recommendations.length > 0 && (
+        <div className="card">
+          <h3 className="text-base font-bold text-slate-900 mb-1">
+            Recommended Actions
+          </h3>
+          <p className="text-xs text-slate-500 mb-4">
+            Prioritized interventions to reduce your CX Debt
+          </p>
 
-        <div className="space-y-4">
-          {results.recommendations.map((rec, index) => (
-            <div
-              key={index}
-              className="border border-slate-200 rounded-lg p-4"
-            >
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-slate-400">
-                    {index + 1}.
+          <div className="space-y-3">
+            {results.recommendations.map((rec, index) => (
+              <div
+                key={index}
+                className="border border-slate-200 rounded-lg p-4"
+              >
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-bold text-slate-400">
+                      {index + 1}.
+                    </span>
+                    <h4 className="font-semibold text-slate-900 text-sm">
+                      {rec.title}
+                    </h4>
+                  </div>
+                  <span className={priorityConfig[rec.priority].badge}>
+                    {priorityConfig[rec.priority].label}
                   </span>
-                  <h4 className="font-semibold text-slate-900">{rec.title}</h4>
                 </div>
-                <span className={priorityConfig[rec.priority].badge}>
-                  {priorityConfig[rec.priority].label}
-                </span>
+                <p className="text-sm text-slate-600 leading-relaxed mb-3 pl-6">
+                  {rec.description}
+                </p>
+                <div className="pl-6">
+                  <span className="text-xs font-semibold text-green-700 bg-green-50 px-2 py-1 rounded">
+                    Estimated savings: {formatCurrency(rec.estimatedSavings)}
+                    /month
+                  </span>
+                </div>
               </div>
-              <p className="text-sm text-slate-600 leading-relaxed mb-3 pl-6">
-                {rec.description}
-              </p>
-              <div className="pl-6">
-                <span className="text-sm font-semibold text-green-700 bg-green-50 px-2 py-1 rounded">
-                  Estimated savings: {formatCurrency(rec.estimatedSavings)}/month
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Actions */}
-      <div className="flex items-center justify-center gap-4">
-        <button onClick={onReset} className="btn-secondary">
-          <RotateCcw className="w-4 h-4 mr-2" />
-          Recalculate
-        </button>
-        {/* PDF export will go here in v2 */}
-      </div>
+      )}
     </div>
   );
 }
