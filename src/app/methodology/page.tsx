@@ -33,8 +33,7 @@ export default function MethodologyPage() {
             estimation</strong>, not decimal-point precision. Like technical
             debt calculations in engineering, the value is in making the
             invisible visible — giving support leaders financial language for
-            operational realities that are otherwise dismissed as
-            <strong>just backlog.</strong>
+            operational realities that are otherwise dismissed as <strong>just backlog.</strong>
           </p>
           <p>
             All inputs are adjustable. All assumptions are documented below. If
