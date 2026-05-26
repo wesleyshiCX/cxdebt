@@ -21,7 +21,7 @@
 
 @layer components {
   .container-narrow {
-    @apply max-w-4xl mx-auto px-6 py-8;
+    @apply max-w-4xl mx-auto px-6;
   }
 
   .container-wide {
@@ -31,9 +31,10 @@
   .section-padding {
     @apply py-16 md:py-24;
   }
-/* Only apply negative margin to a section that follows another section-padding */
-  .section-padding:not(:first-child) {
-    @apply -mt-16 md:-mt-24;
+
+  /* Collapse top padding when a section follows another section */
+  .section-padding + .section-padding {
+    @apply pt-0;
   }
 
   .card {
