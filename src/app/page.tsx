@@ -141,7 +141,7 @@ export default function HomePage() {
               </p>
               <p className="text-slate-900 font-semibold leading-relaxed">
                 Support and CX teams have never had an equivalent. They call it
-                &ldquo;backlog&rdquo; — a neutral word for a compounding
+                <strong>backlog</strong> — a neutral word for a compounding
                 financial problem.
               </p>
             </div>

@@ -53,7 +53,7 @@ export default function AboutPage() {
             The difference isn&apos;t the severity of the problem. It&apos;s
             the language. Engineering has a financial metaphor that executives
             understand intuitively. Support has a neutral word —
-            &ldquo;backlog&rdquo; — that communicates volume but not cost.
+            <strong>backlog</strong> — that communicates volume but not cost.
           </p>
 
           <p className="text-lg text-slate-700 leading-relaxed">

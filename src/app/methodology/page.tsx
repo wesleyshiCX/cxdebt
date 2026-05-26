@@ -34,7 +34,7 @@ export default function MethodologyPage() {
             debt calculations in engineering, the value is in making the
             invisible visible — giving support leaders financial language for
             operational realities that are otherwise dismissed as
-            &ldquo;just backlog.&rdquo;
+            <strong>just backlog.</strong>
           </p>
           <p>
             All inputs are adjustable. All assumptions are documented below. If
