@@ -25,7 +25,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section >
+      <section className="section-padding">
         <div className="container-narrow space-y-6">
           <p className="text-lg text-slate-700 leading-relaxed">
             I&apos;ve spent my career building and leading support
