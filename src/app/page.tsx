@@ -140,7 +140,7 @@ export default function HomePage() {
                 for an operational reality.
               </p>
               <p className="text-slate-900 font-semibold leading-relaxed">
-                Support and CX teams have never had an equivalent. They call it
+                Support and CX teams have never had an equivalent. They call it 
                 <strong>backlog</strong> — a neutral word for a compounding
                 financial problem.
               </p>
