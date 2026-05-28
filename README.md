@@ -7,7 +7,7 @@
 📊 **For:** Support Directors, VPs of CX, and Heads of Support 
 building the business case for investment
 
-![CX Debt Calculator](./docs/screenshot.png)
+![CX Debt Calculator](cxdebtscreenshot.png)
 
 ---
 
